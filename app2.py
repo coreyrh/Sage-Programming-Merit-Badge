@@ -3,13 +3,19 @@ import sys
 
 # This function takes input and validates that all of the required input is there
 def getArgs():
-    if len(sys.argv) == 3:    
-        # what is the bracket '[1]' doing?
-        age = str(sys.argv[1])
-        name = str(sys.argv[2])
+    try:
+        age, name = str(sys.argv[1], sys.argv[2])
+    except:
+        print ('This program requires input.')
+        print ('Syntax: python app.py <age> <name>')
+        print ('Example: python app.py 40 Tom')
+        print ('')
+        print ('Using example as defaults')
+        print ('')
+        return ("40", "Tom")
+
     else:
-        print ('This program requires input.  Example app.py <age> <name>.  python app.py 40 Tom')
-    return(age, name)
+        return (age,name)
 
 # Add an appropriate comment here
 def thePrintFunction( character_age, character_name):
